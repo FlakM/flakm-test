@@ -1,0 +1,43 @@
+/* put conde here */
+
+
+.mw8  {  max-width: 64rem; }
+
+.w-two-thirds-l {
+    width: 80% ;
+}
+
+
+.bg-top {
+    background-position: center;
+}
+
+
+.my-table table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+.my-table th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  
+.my-table tr:hover {background-color: rgba(243, 235, 235, 0.911);}
+
+
+.danger {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+}
+
+
+.hanchor { font-size: 70%; visibility: hidden}
+
+
+h1:hover a { visibility: visible}
+h2:hover a { visibility: visible}
+h3:hover a { visibility: visible}
+h4:hover a { visibility: visible}
