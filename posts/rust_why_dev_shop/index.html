@@ -1,0 +1,285 @@
+<!doctype html><html lang=pl>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Difficult case of pitching rust in a web shop | FlakM blog</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Short research about making decision to use rust in medium web development shop.">
+<meta name=generator content="Hugo 0.91.2">
+<meta name=robots content="index, follow">
+<link rel=stylesheet href=/flakm-test/ananke/css/main.min.98b8feee71ad3d56ea881041d877c631e7268369636aa10acbcb1c7f3bd3ea41.css>
+<link rel=stylesheet href=/flakm-test/css/main.css>
+<meta property="og:title" content="Difficult case of pitching rust in a web shop">
+<meta property="og:description" content="Short research about making decision to use rust in medium web development shop.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://flakm.github.io/flakm-test/posts/rust_why_dev_shop/"><meta property="og:image" content="https://flakm.github.io/images/scales.jpg"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-09-18T12:12:24+02:00">
+<meta property="article:modified_time" content="2022-09-18T12:12:24+02:00">
+<meta itemprop=name content="Difficult case of pitching rust in a web shop">
+<meta itemprop=description content="Short research about making decision to use rust in medium web development shop."><meta itemprop=datePublished content="2022-09-18T12:12:24+02:00">
+<meta itemprop=dateModified content="2022-09-18T12:12:24+02:00">
+<meta itemprop=wordCount content="2008"><meta itemprop=image content="https://flakm.github.io/images/scales.jpg">
+<meta itemprop=keywords content="rust,english,"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://flakm.github.io/images/scales.jpg">
+<meta name=twitter:title content="Difficult case of pitching rust in a web shop">
+<meta name=twitter:description content="Short research about making decision to use rust in medium web development shop.">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-172669006-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body class="ma0 avenir bg-near-white production">
+<header class="cover bg-top" style=background-image:url(https://flakm.github.io/flakm-test/images/scales.jpg)>
+<div class=bg-black-60>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/flakm-test/ class="f3 fw2 hover-white no-underline white-90 dib">
+FlakM blog
+</a>
+<div class="flex-l items-center">
+<ul class="pl0 mr3">
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/flakm-test/ title="Home page">
+Home
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/flakm-test/about/ title="About me page">
+About me
+</a>
+</li>
+</ul>
+<div class=ananke-socials>
+<a href=https://github.com/FlakM target=_blank class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel=noopener aria-label="follow on GitHub——Opens in a new window">
+<span class=icon><svg style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+</span>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</span></a>
+</div>
+</div>
+</div>
+</nav>
+<div class="tc-l pv6 ph3 ph4-ns">
+<h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Difficult case of pitching rust in a web shop</h1>
+</div>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class="mt3 ananke-socials">
+</div>
+<h1 class="f1 athelas mt3 mb1">Difficult case of pitching rust in a web shop</h1>
+<p class=tracked>
+By <strong>flakm</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2022-09-18T12:12:24+02:00>September 18, 2022</time>
+<span class="f6 mv4 dib tracked"> - 10 minutes read </span>
+<span class="f6 mv4 dib tracked"> - 2008 words </span>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id=how-web-heavy-organizations-can-benefit-from-rust>How web heavy organizations can benefit from Rust</h1>
+<p>My relationship with rust could be described as rather unhealthy.
+Working with it feels like having a trusty old friend by your side punching you in the face any time you decide to do something silly.
+Additionally, it made me resent other languages for not doing the same. I blame all of <a href=https://github.com/rust-lang/rust/graphs/contributors>you!</a>.
+My strong opinions about the language probably make my judgment rather biased. That&rsquo;s why I decided to write my research before pitching it to anyone.</p>
+<p>I&rsquo;d like to tell a story of a middle-sized web development company (I&rsquo;m thinking 20-200 devs actively maintaining the code).
+To draw the picture here: the fictional company has been mainly using high-level battle-tested technologies either JVM, c#, go, ruby, or python.
+To enable rapid growth it accepted some well-known practices and technologies. At the same time, it managed to create a successful product.
+Since the architecture decisions are made by a group of very smart people with rather large experience and domain knowledge they will not accept any marketing bs.</p>
+<p>With this context in mind let&rsquo;s look at rust&rsquo;s selling points.</p>
+<ul>
+<li>safety</li>
+<li>blazing fast</li>
+<li>fearless concurrency</li>
+<li>productivity</li>
+</ul>
+<p>But wait. Those things are marginally tempting for the company.
+They don&rsquo;t need to be blazingly fast - fast is good enough.
+The GC languages (or ref counted) are already mostly safe.
+Some libraries allow you to be fearless with concurrency.
+Productive? Well, they have been productive - they got to become an established company.</p>
+<p>I know you cannot tell but I&rsquo;m scared.
+Is it possible that rust does not fit this scenario?</p>
+<h2 id=the-problems-with-adoption>The problems with adoption</h2>
+<p>It is challenging to establish valid tactics to measure the impact of using new technology. But the following problems seem obvious:</p>
+<ol>
+<li>developers need to spend time learning new technologies and styles of programming</li>
+<li>new CI/CD pipelines with caches and security scanning have to be created</li>
+<li>alternative cost - developers will not create new features when learning</li>
+<li>organization will have to learn how to teach and hire new talent</li>
+</ol>
+<p>Point number one gets even harder when we are talking about classic web companies - they are not exactly used to terminology that is common with rust and c family.
+Pointers, allocations, and dynamic/static linking are enough to make a head spin.
+All of the above are present in mentioned languages, but they are abstracted away for our convenience.</p>
+<p>Investing time to create CI/CD pipelines is not a small feat in itself.
+Especially when the old ones were polished so much over the years.
+There are things that they already do for free, and they are&mldr; well established.</p>
+<p>Even though cargo is awesome many years went into maven, gradle, sbt, pip, poetry, conda&mldr;
+Although some of them have their problems - they also have large benefits - they are well understood.</p>
+<p>Lastly, there is an issue and it&rsquo;s a big one. Sacrificing the possible features that could have been delivered at the same time.
+Depending on the competition in the market, an initial slowdown might cause major churn.</p>
+<h2 id=the-potential-benefits>The potential benefits</h2>
+<p>It&rsquo;s not all bad though, is it? There must be something behind the massive hype that I keep on reading and hearing.
+Large companies like Amazon and Microsoft that have a lot of experience and investment
+in other languages are not willing to thoughtlessly jump to new technologies.
+Granted they all have quite different business use cases that might fit high performance better than classic web companies.
+I can see the following main reasons for adopting rust in described context:</p>
+<ol>
+<li>Optimizing for the long ride</li>
+<li>Obtaining a highly versatile skill - applicable in many contexts</li>
+<li>Encouraging learning and not being afraid of lower abstractions</li>
+<li>Saving on the cloud bill</li>
+<li>Encouraging good security practices by using sane defaults and exposing the problems to end users</li>
+</ol>
+<h3 id=the-long-ride-argument>The long ride argument</h3>
+<p>Programming language C was created by Dennis Ritchie 50 years ago.
+Even though it&rsquo;s easy to give in to the hype of fast-moving and breaking stuff the reality is that some software will run for a long time - maybe 50 years or more.
+Compiled rust program doesn&rsquo;t differ from compiled C program that much (well&mldr;). It uses the same underlying technologies, just allows you to avoid common foot guns:</p>
+<ul>
+<li>It is statically typed - this catches some problem in logic as soon as possible</li>
+<li>Its expression based It is inspired by OCaml (it has even been written in <a href=https://github.com/rust-lang/rust/tree/ef75860a0a72f79f97216f8aaa5b388d98da6480/src/boot>it</a></li>
+<li>It has a notion of immutability and mutability at the type level - allows to specify contracts to disallow invalid behaviors due to future modifications</li>
+<li>It has Result/Option types through the standard library - it does not hide the complexity</li>
+<li>It has a very rich documentation tooling autogenerated from code that encourages easy documentation.
+Check out <a href=https://doc.rust-lang.org/std/primitive.slice.html#method.swap>this</a> it even contains runnable examples in a web browser!</li>
+<li>Ownership model not only helps with avoiding problems introduced by GC but also helps with concurrency</li>
+<li>Tooling is superb - it has a powerful package manager, linter, formater, and compiler with outstanding error messages with helpful suggestions</li>
+<li>It does not have a company behind it but <a href=https://foundation.rust-lang.org/>foundation</a></li>
+<li>It is a very popular open source project with over <a href=https://github.com/rust-lang/rust/graphs/contributors>4 thousand contributors!</a></li>
+<li>It has a very rich ecosystem of libraries (even though some of them have few contributors)</li>
+<li>It has a very cool jingle in my favorite <a href=https://www.jupiterbroadcasting.com/>Linux podcast</a> in the picks section</li>
+</ul>
+<p>All of those features make a rust source code easy to maintain over time.
+It&rsquo;s far easier to introduce change ad refactor if you can trust the compiler to catch all your mistakes.</p>
+<h3 id=versitality>Versitality</h3>
+<p>Rust is a beast when it comes to different use cases. In the context of web development, it can be used to:</p>
+<ul>
+<li>Run as powerful web servers using a vast amount of networking protocols like <a href=https://github.com/tokio-rs/axum>http</a>, <a href=https://github.com/hyperium/tonic>grpc</a> or access popular storage like <a href=https://github.com/rusoto/rusoto>s3</a></li>
+<li>Run on mobile phones for instance on <a href=https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-06-rust-on-ios.html>ios</a> or <a href=https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html>Android</a></li>
+<li>Run on the terminal as very powerful cli tools</li>
+<li>Power GUI applications</li>
+<li>Run on browser using <a href=https://rustwasm.github.io/docs/book/>WebAssembly</a></li>
+<li>Run inside python applications to power some performance-critical sections using <a href=https://github.com/PyO3/pyo3>bindings</a></li>
+</ul>
+<p>Once perfected this could enable a developer to contribute in areas that would previously require a large undertaking of learning new technologies.</p>
+<h3 id=encouraging-learning>Encouraging learning</h3>
+<p>The unique mix of traits makes rust encouraging to experiment with.
+It&rsquo;s thanks to endless efforts of the community to polish the tooling like compiler messages or linters.
+Personally, the biggest confidence boost might be attributed to the work that goes into documentation tooling and the documentation itself.
+In the world of very fast-moving world quality of documentation is very often sacrificed in the name of delivering features.</p>
+<p>This is not the case with rust. Just to showcase let us see my favorite examples:</p>
+<ul>
+<li><a href=https://doc.rust-lang.org/std/sync/struct.Mutex.html>documentation of mutex in standard library</a></li>
+<li><a href=https://docs.rs/clap/latest/clap/>root documentation of popular cli argument parsing library</a></li>
+<li><a href=https://docs.rs/sqlx/latest/sqlx/macro.query.html>query macro documentation for popular sql library</a></li>
+</ul>
+<h3 id=saving-on-the-cloud-bill>Saving on the cloud bill</h3>
+<p>This one is exceptionally tricky due to the complicated nature of the measurements.
+The wrong data structure or algorithm written in the best language would still gobble on those precious watts.</p>
+<p>Obligatory disclaimer - <strong>Rust is not in any way a panacea to all problems!</strong>
+For example, I&rsquo;ve managed to create a surprising number of bugs which is impressive taking into consideration that for me rust has been only a side hobby and I&rsquo;ve only managed to use it a couple of times professionally<br>
+But let&rsquo;s return to the main point&mldr;</p>
+<p>Depending on the scenario there might be different factors of high invoice:
+significant network traffic, large needs for computing power (CPU-bound tasks), high memory needs, storage costs,, and many more.</p>
+<p>Even though it&rsquo;s probably hard to estimate the efficiency of a language itself in a complex web company
+there are <a href=https://greenlab.di.uminho.pt/wp-content/uploads/2017/10/sleFinal.pdf>sources</a> that try to create synthetic metrics.
+Benchmarks show that the rust/c program can be up to 2 times more power efficient than java or even 75 times than python.
+Large, well-established companies start to share their results after adopting rust:</p>
+<ul>
+<li>Discord was <a href=https://discord.com/blog/why-discord-is-switching-from-go-to-rust>able</a> not only to reduce the memory footprint of the application but also to enjoy the benefits of using rust memory model: they eliminated latency spikes that were caused by GC in original go implementation.</li>
+<li>AWS estimated <a href=https://aws.amazon.com/blogs/opensource/sustainability-with-rust/>that</a> rust is an essential tool to reduce total worldwide data center energy consumption which amounts to 1% of total energy usage.</li>
+<li><a href=https://www.phoronix.com/news/CloudFlare-Pingora-No-Nginx>Recently</a> Cloudflare shared outstanding savings after migrating their nginx proxy to rust. Cloudflare stated that they way able to reduce CPU load by 70% and use 76% less memory.</li>
+</ul>
+<p>There is a common trait between all of those examples: discussed areas are in the very <strong>core of the business</strong>, there is a <strong>high load</strong> on the application, and the <strong>latencies</strong> are directly correlated to the end-user experience.</p>
+<p>Additionally, I can think of things in the work that would very much benefit this even further:</p>
+<ul>
+<li>iouring adoption in rust ecosystem to support asynchronous computations (networking, fast storage access, and more)</li>
+<li>recent stabilization of GAT will enable further improvements in asynchronous features in the language.
+This will empower the async ecosystem to experiment with new cool things.</li>
+</ul>
+<h3 id=encouraging-security-and-sanity>Encouraging security and sanity</h3>
+<p>The main selling point of rust - memory safety does not directly apply here: java/go is garbage collected and python uses references counting - they kind of are ok in this department.
+But memory safety is not the only way we shoot ourselves in the foot on a daily basis.
+Rust&rsquo;s ownership model lends itself nicely to two essential topics in modern development: concurrency and parallelism.</p>
+<p>And if you haven&rsquo;t been paying attention there are major changes in the hardware industry going on. All big players are flirting with the smaller cores on the CPU.
+<a href=https://en.wikipedia.org/wiki/ARM_big.LITTLE>ARM</a>, <a href=https://arstechnica.com/gadgets/2021/11/intels-alder-lake-big-little-cpu-design-tested-its-a-barn-burner/>Intel</a>, <a href="https://developer.apple.com/news/?id=vk3m204o">Apple</a> all have them.
+Even cloud vendors offer ARM on the server side like <a href=https://aws.amazon.com/ec2/graviton/>AWS&rsquo;s graviton</a> or <a href=https://azure.microsoft.com/en-us/blog/now-in-preview-azure-virtual-machines-with-ampere-altra-armbased-processors/>Microsoft&rsquo;s one</a>.
+Also at the RISC-V interest seems to hit the <a href=https://www.sifive.com/press/nasa-selects-sifive-and-makes-risc-v-the-go-to-ecosystem>sky</a> too (sorry for the dad joke&mldr;).
+It&rsquo;s way more cost-effective to use tools that can use the benefits of those platforms.</p>
+<p>Rust is statically typed and types like Result or Option are sprinkled everywhere in the standard library and the ecosystem with some nice safety measures.</p>
+<p>TLDR for example rustc will get <a href=https://doc.rust-lang.org/reference/attributes/diagnostics.html#the-must_use-attribute>quite mad</a> at you if you decide not to use the outcome of some calculation that might either finish with a successful result or not prevent the whole family of bugs.
+But rust is not a solution to all the problems, you can opt out of some safety guarantees, and many times you will have to do something where rust cannot help you.
+On a happy note though clippy - rust linter will also <a href=https://rust-lang.github.io/rust-clippy/master/#missing_safety_doc>scream</a> at you if you decide not to document what are the safety rules that consumers of unsafe functions/methods must uphold.</p>
+<h2 id=finishing-thoughts>Finishing thoughts</h2>
+<p>Rust is here to stay and it is a perfect tool to have in your pocket both as an individual and organization.
+There are contexts where adopting rust is eased by possessing previous experience with similar technologies.
+Sadly, in the context of the average web development shop, the cost of adopting rust for a new project is very high, even higher when it comes to rewriting a big chunk of codebases.
+On the other hand, given certain constraints, it might prove enormous value to developers and the company itself.
+I guess if you read to this point you wasted your time. There is no one answer :&lt;</p>
+<p>Topic: Difficult case of pitching rust - web development shop.</p>
+<p>TLDR: Rust is a tough sell for JVM/python heavy companies with a lot of experience and actively maintained legacy code.
+Sadly I don&rsquo;t think it&rsquo;s a good idea.</p>
+<p>I&rsquo;ve recently decided to collect my thoughts and arguments for pitching rust.
+I tried to consider both sides - technology and business value.</p>
+<p>Articles links to many big tech articles describing rust success stories (MS, AWS, Discord, Cloudflare).
+During my research, I&rsquo;ve found it hard to find some stories from not-so-small to medium-sized companies.
+If you have some war stories or remarks I&rsquo;d be very happy to include them in the article.</p>
+<script defer language=javascript type=text/javascript src=/flakm-test/js/add_anchors.js></script>
+<ul class=pa0>
+<li class="list di">
+<a href=/flakm-test/tags/rust class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">rust</a>
+</li>
+<li class="list di">
+<a href=/flakm-test/tags/english class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">english</a>
+</li>
+</ul>
+<div class="mt6 instapaper_ignoref">
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//flakm-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/flakm-test/posts/rust_interview_questions/>Simple rust interview questions</a>
+</li>
+<li class=mb2>
+<a href=/flakm-test/posts/heap_allocation/>Profiling heap allocation in rust</a>
+</li>
+<li class=mb2>
+<a href=/flakm-test/posts/rustydht11/>Rustberry PI - DHT11</a>
+</li>
+<li class=mb2>
+<a href=/flakm-test/posts/rustylcd/>Rustberry PI - LCD</a>
+</li>
+<li class=mb2>
+<a href=/flakm-test/posts/rustyled/>Rustberry PI - LED</a>
+</li>
+</ul>
+</div>
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://flakm.github.io/flakm-test>
+&copy; Copyright © 2022, Maciej Flak; all rights reserved. 2022
+</a>
+<div>
+<div class=ananke-socials>
+<a href=https://github.com/FlakM target=_blank class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel=noopener aria-label="follow on GitHub——Opens in a new window">
+<span class=icon><svg style="enable-background:new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M256 32C132.3 32 32 134.8 32 261.7c0 101.5 64.2 187.5 153.2 217.9 11.2 2.1 15.3-5 15.3-11.1.0-5.5-.2-19.9-.3-39.1-62.3 13.9-75.5-30.8-75.5-30.8-10.2-26.5-24.9-33.6-24.9-33.6-20.3-14.3 1.5-14 1.5-14 22.5 1.6 34.3 23.7 34.3 23.7 20 35.1 52.4 25 65.2 19.1 2-14.8 7.8-25 14.2-30.7-49.7-5.8-102-25.5-102-113.5.0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8.0.0 18.8-6.2 61.6 23.5 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 42.8-29.7 61.5-23.5 61.5-23.5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6.0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5.0 30.7-.3 55.5-.3 63 0 6.1 4 13.3 15.4 11C415.9 449.1 480 363.1 480 261.7 480 134.8 379.7 32 256 32z"/></svg>
+</span>
+<span class=new-window><svg height="8" style="enable-background:new 0 0 1000 1000" viewBox="0 0 1e3 1e3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M598 128h298v298h-86V274L392 692l-60-60 418-418H598v-86zM810 810V512h86v298c0 46-40 86-86 86H214c-48 0-86-40-86-86V214c0-46 38-86 86-86h298v86H214v596h596z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
